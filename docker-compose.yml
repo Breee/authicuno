@@ -1,0 +1,58 @@
+version: '2.4'
+services:
+
+  authicuno:
+    image: breedocker/authicuno
+    environment:
+      - "BOT_TOKEN=XXXXXX"
+      - "CORE_DB_HOST=db"
+      - "CORE_DB_PORT=3306"
+      - "CORE_DB_NAME=authidb"
+      - "CORE_DB_USER=authiuser"
+      - "CORE_DB_PASSWORD=bestpw"
+      - "CORE_DB_DIALECT=mysql"
+      - "CORE_DB_DRIVER=mysqlconnector"
+      - "PMSF_DB_HOST=pmsf_db"
+      - "PMSF_DB_PORT=3306"
+      - "PMSF_DB_NAME=pmsf"
+      - "PMSF_DB_USER=pmsf"
+      - "PMSF_DB_PASSWORD=bestpw"
+      - "PMSF_DB_DIALECT=mysql"
+      - "PMSF_DB_DRIVER=mysqlconnector"
+    restart: always
+    depends_on:
+      - db
+    networks:
+      - default
+
+  db:
+    image: mariadb
+    environment:
+      - "MYSQL_ROOT_PASSWORD=root1234"
+      - "MYSQL_DATABASE=authicuno_db"
+      - "MYSQL_USER=authicuno"
+      - "MYSQL_PASSWORD=bestpw"
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+    volumes:
+      - ./volumes/coredb:/var/lib/mysql
+    restart: always
+    ports:
+      -  "1337:3306"
+    networks:
+      - default
+
+  pmsf:
+    image: mariadb
+    environment:
+      - "MYSQL_ROOT_PASSWORD=root1234"
+      - "MYSQL_DATABASE=pmsf"
+      - "MYSQL_USER=pmsf"
+      - "MYSQL_PASSWORD=bestpw"
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+    volumes:
+      - ./volumes/pmsf:/var/lib/mysql
+    restart: always
+    ports:
+      -  "1339:3306"
+    networks:
+      - default
