@@ -1,0 +1,4 @@
+./volumes/
+config.py
+*__pycache__
+*.log
