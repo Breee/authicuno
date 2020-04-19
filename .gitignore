@@ -131,3 +131,5 @@ dmypy.json
 .idea/
 
 volumes/
+
+authicuno/config.py
