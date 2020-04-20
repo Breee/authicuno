@@ -191,8 +191,6 @@ services:
     volumes:
       - ./volumes/coredb:/var/lib/mysql
     restart: always
-    ports:
-      -  "1337:3306"
     networks:
       - default
 
