@@ -1,9 +1,8 @@
+[![Breee](https://circleci.com/gh/Breee/authicuno.svg?style=svg)](https://app.circleci.com/pipelines/github/Breee/authicuno)
+
 # Authicuno
 - Authicuno reads a mapping  Server -> role -> rank and writes  user -> rank into a db.
 - It is designed to work with [PMSF](https://github.com/pmsf/PMSF) and similar to [PMSF-Discord-AuthBot](https://github.com/pmsf/PMSF-Discord-AuthBot)
-
-
-[![Breee](https://circleci.com/gh/Breee/authicuno.svg?style=svg)](https://app.circleci.com/pipelines/github/Breee/authicuno)
 
 Questions? I'm Bree#2002 @ Discord
 
