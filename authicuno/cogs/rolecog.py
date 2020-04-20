@@ -33,7 +33,8 @@ class RoleCog(commands.Cog, name="Roles"):
             member_to_access_level[member] = member_lvl
         return member_to_access_level
 
-    def update_member(self, member: Member, access_level: int) -> None:
+    def update_member(self, member: Member) -> None:
+        access_level = self.get_member_lvl(member)
         self.db.update_member(member=member, access_level=access_level)
 
     @commands.Cog.listener("on_ready")
@@ -43,19 +44,21 @@ class RoleCog(commands.Cog, name="Roles"):
         access_map: dict = self.get_access_map()
         self.db.update_members(access_map)
 
-
     @commands.Cog.listener("on_member_update")
     async def on_member_update(self, before, after):
         if before.roles != after.roles:
             LOGGER.info(f"Member {after} updated roles, updating access-level")
-            access_level = self.get_member_lvl(after)
-            self.update_member(member=after, access_level=access_level)
+            self.update_member(member=after)
 
     @commands.Cog.listener("on_member_remove")
     async def on_member_remove(self, member):
         LOGGER.info(f"Member {member} left server, updating access-level")
-        access_level = self.get_member_lvl(member)
-        self.update_member(member=member, access_level=access_level)
+        self.update_member(member=member)
+
+    @commands.Cog.listener("on_member_join")
+    async def on_member_join(self, member):
+        LOGGER.info(f"Member {member} updating server, updating access-level")
+        self.update_member(member=member)
 
 
 
