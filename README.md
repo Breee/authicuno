@@ -8,6 +8,13 @@ Questions? I'm Bree#2002 @ Discord
 
 Docker image:  https://cloud.docker.com/repository/docker/breedocker/authicuno
 
+
+# Workflow 
+- On startup, Authicuno will update all users accoring to the configuration you give him.
+- If the roles of a member change, Authicuno will recalculate its access level.
+- If a member leaves a guild, Authicuno will recalculate its access level.
+
+
 # Commands
 Commands consist of a `prefix` and an `alias`.
 
@@ -18,9 +25,6 @@ Utils:
 - `@bot_user_name#1337 help` display help
 - `@bot_user_name#1337 ping` ping the bot
 - `@bot_user_name#1337 uptime` return how long the bot is operational.
-
-Roles:
-- `@bot_user_name#1337 update_members` updates all users accoring to your config.
 
 # Setup
 

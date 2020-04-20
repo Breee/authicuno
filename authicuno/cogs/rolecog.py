@@ -36,18 +36,25 @@ class RoleCog(commands.Cog, name="Roles"):
     def update_member(self, member: Member, access_level: int) -> None:
         self.db.update_member(member=member, access_level=access_level)
 
-    @commands.command()
-    async def update_members(self, ctx) -> None:
+    @commands.Cog.listener("on_ready")
+    async def on_ready(self):
         access_map: dict = self.get_access_map()
         self.db.update_members(access_map)
-        #embed = Embed(title="Update Summary", description="\n".join(self.db.get_members()))
-        #await ctx.send("Updated.", embed=embed)
+
 
     @commands.Cog.listener("on_member_update")
     async def on_member_update(self, before, after):
-        LOGGER.info(f"{after} updated")
-        access_level = self.get_member_lvl(after)
-        self.update_member(member=after,access_level=access_level)
+        if before.roles != after.roles:
+            LOGGER.info(f"Member {after} updated roles, updating access-level")
+            access_level = self.get_member_lvl(after)
+            self.update_member(member=after, access_level=access_level)
+
+    @commands.Cog.listener("on_member_remove")
+    async def on_member_remove(self, member):
+        LOGGER.info(f"Member {member} left server, updating access-level")
+        access_level = self.get_member_lvl(member)
+        self.update_member(member=member, access_level=access_level)
+
 
 
 
