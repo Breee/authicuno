@@ -37,6 +37,8 @@ class RoleCog(commands.Cog, name="Roles"):
         self.db.update_member(member=member, access_level=access_level)
 
     @commands.Cog.listener("on_ready")
+    @commands.Cog.listener("on_guild_remove")
+    @commands.Cog.listener("on_guild_join")
     async def on_ready(self):
         access_map: dict = self.get_access_map()
         self.db.update_members(access_map)
