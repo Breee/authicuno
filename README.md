@@ -11,8 +11,10 @@ Docker image:  https://cloud.docker.com/repository/docker/breedocker/authicuno
 
 # Workflow 
 - On startup, Authicuno will update all users accoring to the configuration you give him.
-- If the roles of a member change, Authicuno will recalculate its access level.
-- If a member leaves a guild, Authicuno will recalculate its access level.
+- Authicuno will recalculate access levels if:
+  - The roles of a member change, 
+  - A member joins or leaves a guild, Authicuno will recalculate its access level.
+  - Authicuno joins or leaves a guild, 
 
 
 # Commands
