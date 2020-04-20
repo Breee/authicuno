@@ -39,7 +39,7 @@ class RoleCog(commands.Cog, name="Roles"):
     @commands.Cog.listener("on_ready")
     @commands.Cog.listener("on_guild_remove")
     @commands.Cog.listener("on_guild_join")
-    async def on_ready(self):
+    async def update_members(self):
         access_map: dict = self.get_access_map()
         self.db.update_members(access_map)
 
