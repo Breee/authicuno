@@ -18,13 +18,14 @@ class PmsfDBHandler(DbHandler):
 
     @transaction_wrapper
     def update_member(self, member: Member, access_level : int) -> None:
-        LOGGER.info(f"Updating: {member} to lvl {access_level}")
-        self.session.execute(self.generate_query(member.id, access_level, f'{member.name}#{member.discriminator}'))
+        if access_level > 0:
+            LOGGER.info(f"Updating: {member} to lvl {access_level}")
+            self.session.execute(self.generate_query(member.id, access_level, f'{member.name}#{member.discriminator}'))
 
     def update_members(self, access_map: dict) -> None:
         query_bundle = []
         for member, access_lvl in access_map.items():
-            self.update_member(member,access_lvl)
+            self.update_member(member, access_lvl)
 
     @transaction_wrapper
     def get_members(self):

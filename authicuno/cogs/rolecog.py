@@ -27,8 +27,6 @@ class RoleCog(commands.Cog, name="Roles"):
         member_to_access_level = dict()
         members: List[Member] = self.bot.get_all_members()
         for member in members:
-            LOGGER.info(f"Checking {member}")
-            LOGGER.info(f"Member roles {member.roles}")
             member_lvl = self.get_member_lvl(member)
             member_to_access_level[member] = member_lvl
         return member_to_access_level
