@@ -10,8 +10,6 @@ Discord Section.
 BOT_TOKEN = os.getenv("BOT_TOKEN", "XXXXXXX")
 # Discord Status
 PLAYING = os.getenv("TAG", "AUTHICUNO")
-# Command prefix
-PREFIX = os.getenv("BOT_PREFIX", "!")
 
 """
 CORE Section.
