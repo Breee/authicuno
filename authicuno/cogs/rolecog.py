@@ -57,7 +57,7 @@ class RoleCog(commands.Cog, name="Roles"):
 
     @commands.Cog.listener("on_member_join")
     async def on_member_join(self, member):
-        LOGGER.info(f"Member {member} updating server, updating access-level")
+        LOGGER.info(f"Member {member} joined server, updating access-level")
         self.update_member(member=member)
 
 
