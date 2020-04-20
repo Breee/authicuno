@@ -29,7 +29,7 @@ Roles:
 - pip3
 - discord bot user (https://discordapp.com/developers/applications/me)
 - A database of your choice, which is supported by sqlalchemy (https://docs.sqlalchemy.org/en/13/core/engines.html).
-
+- Add the Bot to all Discord Guilds you want to monitor.
 
 ## 2. Configuration:
 Copy the file `config.py.dist` to `config.py` (or create it). 
