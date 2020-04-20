@@ -60,6 +60,11 @@ class RoleCog(commands.Cog, name="Roles"):
         LOGGER.info(f"Member {member} joined server, updating access-level")
         self.update_member(member=member)
 
+    @commands.command()
+    async def print_roles(self, ctx):
+        member = ctx.author
+        await ctx.send("\n".join([f'{r.name} ({r.id})' for r in member.roles]))
+
 
 
 
