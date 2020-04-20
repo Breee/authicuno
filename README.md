@@ -1,6 +1,8 @@
 [![Breee](https://circleci.com/gh/Breee/authicuno.svg?style=svg)](https://app.circleci.com/pipelines/github/Breee/authicuno)
 
 # Authicuno
+![Articuno logo by pkmshuffle! they are awesome :)](https://vignette.wikia.nocookie.net/pokeone/images/1/10/Shuffle144.png/revision/latest/scale-to-width-down/128?cb=20171226125907)
+
 - Authicuno reads a mapping  Server -> role -> rank and writes  user -> rank into a db.
 - It is designed to work with [PMSF](https://github.com/pmsf/PMSF) and similar to [PMSF-Discord-AuthBot](https://github.com/pmsf/PMSF-Discord-AuthBot)
 
