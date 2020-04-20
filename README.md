@@ -52,7 +52,7 @@ PLAYING = os.getenv("TAG", "AUTHICUNO")
 """
 CORE Section.
 """
-# The host of the DB in which we store polls
+# The host of the DB in which we store core settings
 CORE_DB_HOST = os.getenv("CORE_DB_HOST", "db")
 # The user of the DB
 CORE_DB_USER = os.getenv("CORE_DB_USER", "authicuno")
@@ -60,7 +60,7 @@ CORE_DB_USER = os.getenv("CORE_DB_USER", "authicuno")
 CORE_DB_PASSWORD = os.getenv("CORE_DB_PASSWORD", "bestpw")
 # The port of the DB-server
 CORE_DB_PORT = os.getenv("CORE_DB_PORT", 3306)
-# The name of the DB in which we store polls
+# The name of the DB in which we store  core settings
 CORE_DB_NAME = os.getenv("CORE_DB_NAME", "authicuno_db")
 # The dialect of the database-server
 CORE_DB_DIALECT =  os.getenv("CORE_DB_DIALECT", "mysql")
@@ -70,15 +70,15 @@ CORE_DB_DRIVER =  os.getenv("CORE_DB_DRIVER", "mysqlconnector")
 """
 PMSF Section.
 """
-# The host of the DB in which we store polls
+# The host of the PMSF manual-db 
 PMSF_DB_HOST = os.getenv("PMSF_DB_HOST", "pmsf_db")
-# The user of the DB
+# The user of the PMSF manual-db 
 PMSF_DB_USER = os.getenv("PMSF_DB_USER", "pmsf")
-# The password of user PMSF_DB_USER
+# The password of user PMSF manual-db USER
 PMSF_DB_PASSWORD = os.getenv("PMSF_DB_PASSWORD", "bestpw")
-# The port of the DB-server
+# The port of the PMSF manual-db server
 PMSF_DB_PORT = os.getenv("PMSF_DB_PORT", 3306)
-# The name of the DB in which we store polls
+# The name of the PMSF manual-db 
 PMSF_DB_NAME = os.getenv("PMSF_DB_NAME", "pmsf")
 # The dialect of the database-server
 PMSF_DB_DIALECT =  os.getenv("PMSF_DB_DIALECT", "mysql")
