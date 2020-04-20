@@ -63,7 +63,8 @@ class RoleCog(commands.Cog, name="Roles"):
     @commands.command()
     async def print_roles(self, ctx):
         member = ctx.author
-        await ctx.send("\n".join([f'{r.name} ({r.id})' for r in member.roles]))
+        roles = "\n".join([f'{r.name} ({r.id})' for r in member.roles])
+        await ctx.send(f'Your roles:\n```\n{roles}\n```')
 
 
 
