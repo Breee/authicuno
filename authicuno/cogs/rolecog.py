@@ -16,10 +16,17 @@ class RoleCog(commands.Cog, name="Roles"):
 
     def get_member_lvl(self, member: Member) -> int:
         curr_access_lvl = 0
+        LOGGER.debug("member", member.name)
+        LOGGER.debug("member", member.roles)
         for guild_id, roles in config.GUILDS.items():
+            LOGGER.debug("guild ", guild_id)
             for role_id, access_level in roles.items():
+                LOGGER.debug(f'role {role_id} = {access_level}')
                 if role_id in [role.id for role in member.roles]:
+                    LOGGER.debug(f"{member.name} has role: {role_id}")
+                    LOGGER.debug(f"{member.name}  curr: {curr_access_lvl}")
                     if access_level > curr_access_lvl:
+                        LOGGER.debug(f"{member.name}  new: {access_level}")
                         curr_access_lvl = access_level
         return curr_access_lvl
 
@@ -28,7 +35,11 @@ class RoleCog(commands.Cog, name="Roles"):
         members: List[Member] = self.bot.get_all_members()
         for member in members:
             member_lvl = self.get_member_lvl(member)
-            member_to_access_level[member] = member_lvl
+            if member in member_to_access_level:
+                if member_lvl > member_to_access_level[member]:
+                    member_to_access_level[member] = member_lvl
+            else:
+                member_to_access_level[member] = member_lvl
         return member_to_access_level
 
     def update_member(self, member: Member) -> None:
