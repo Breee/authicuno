@@ -206,4 +206,4 @@ networks:
     external: true
 ``` 
 
-To bring the services up, simply `docker-compose up -d authicuno-db`, `docker-compose up -d authicuno`.
+To bring the services up, simply `docker-compose up -d authicuno-db`, `docker-compose up -d authicuno`
