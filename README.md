@@ -33,7 +33,7 @@ Utils:
 # Setup
 
 ## 1. Requirements: 
-- python 3.7
+- python 3.8
 - pip3
 - discord bot user (https://discordapp.com/developers/applications/me)
 - A database of your choice, which is supported by sqlalchemy (https://docs.sqlalchemy.org/en/13/core/engines.html).
