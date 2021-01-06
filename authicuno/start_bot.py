@@ -24,6 +24,7 @@ SOFTWARE.
 
 from utility.globals import LOGGER
 from bot import Authicuno
+import discord
 
 if __name__ == "__main__":
     LOGGER.info("Starting Bot.")
