@@ -27,5 +27,6 @@ from bot import Authicuno
 
 if __name__ == "__main__":
     LOGGER.info("Starting Bot.")
-    bot = Authicuno(description="")
+    intents = discord.Intents(guilds=True, messages=True, members=True)
+    bot = Authicuno(description="", intents=intents)
     bot.run()
