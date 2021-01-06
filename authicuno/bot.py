@@ -14,9 +14,9 @@ import config
 
 class Authicuno(commands.Bot):
 
-    def __init__(self, description):
+    def __init__(self, description, intents):
         super().__init__(command_prefix=[], description=description, pm_help=None,
-                         help_attrs=dict(hidden=True))
+                         help_attrs=dict(hidden=True), intents=intents)
 
         self.add_cog(UtilsCog(self))
         self.add_cog(RoleCog(self))
